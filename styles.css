@@ -2,19 +2,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Arial", "Helvetica Neue", sans-serif;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
 }
 
 .main-nav {
-  background-color: #000033;
+  background: linear-gradient(90deg, #34ffb1 0%, #ff549e 100%);
   padding: 1rem 0;
-  color: white;
-}
-
-.sub-nav {
-  background-color: white;
-  border-bottom: 1px solid #ddd;
-  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .nav-container {
@@ -29,60 +26,66 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem;
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 .logo img {
-  height: 40px;
+  height: 28px;
 }
 
 .nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
+  align-items: center;
 }
 
 .nav-links a {
   color: white;
   text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  position: relative;
 }
 
-.sub-nav .nav-container a {
-  color: #000033;
-  text-decoration: none;
-  font-weight: 500;
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: white;
 }
 
 .hero {
-  background-color: #000033;
-  color: white;
-  padding: 4rem 0;
+  background: #5965e9;
+  margin-top: 0;
 }
 
 .hero h1 {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: 3.5rem;
+  font-weight: 800;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
-}
-
-.breadcrumb a {
-  color: #666;
-  text-decoration: none;
-}
-
-.breadcrumb span {
-  color: #333;
+  padding: 3rem 2rem;
 }
 
 .intro {
-  margin: 2rem 0 4rem 0;
+  margin: 3rem 0 5rem 0;
 }
 
 .intro h2 {
@@ -98,63 +101,96 @@
   margin-bottom: 1rem;
 }
 
-.campus-clubs h2 {
-  color: #000033;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  font-weight: 700;
+.section-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+.intro-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+}
+
+.lead-text {
+  font-size: 1.35rem;
+  line-height: 1.8;
+  color: #374151;
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
 .clubs-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  padding: 2rem 0;
 }
 
 .club-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 1.5rem;
+  background: #fff;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.05);
+}
+
+.club-card-content {
+  padding: 2.5rem;
+}
+
+.club-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
   transition: transform 0.3s ease;
 }
 
-.club-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.club-card h2 {
-  color: #333;
+.club-card h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #111827;
   margin-bottom: 1rem;
-  font-size: 1.3rem;
-  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 .club-card p {
-  color: #666;
-  line-height: 1.6;
+  color: #4b5563;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
 }
 
-.guitar {
-  background-color: #ffe6ff;
-}
-.piano {
-  background-color: #e6ffff;
-}
-.dance {
-  background-color: #fff2e6;
-}
-.art {
-  background-color: #e6ffe6;
+.club-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
 }
 
-@media (max-width: 768px) {
-  .clubs-grid {
-    grid-template-columns: 1fr;
-  }
+.members {
+  color: #6b7280;
+  font-size: 1rem;
+  font-weight: 500;
+}
 
-  .nav-links {
-    display: none;
-  }
+.join-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background: #2563eb;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  gap: 0.5rem;
 }
